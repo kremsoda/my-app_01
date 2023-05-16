@@ -1,0 +1,13 @@
+.callButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    padding:  20px !important; 
+    transition: .5s ease;
+    &:hover {
+        background-color: aquamarine;
+        color: black;
+        transition: .5s ease;
+    }
+}

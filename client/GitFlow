@@ -1,0 +1,21 @@
+GitFLow
+- master / main
+- develop
+- feature
+- release
+- hotfix
+
+Feature:
+ - feature/user-profile
+ - feature/image-upload
+
+Release:
+  - release/0.0.1
+
+Hotfix:
+  - hotfix/regestration-bug
+
+feat(auth): add support for JWT auth 
+fix(login): resolve issue with special characters in password
+
+[TSC-01]: add support for JWT auth

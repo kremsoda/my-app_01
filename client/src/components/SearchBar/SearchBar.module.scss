@@ -1,0 +1,28 @@
+.searchBar {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 40px;
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-style: italic;
+    font-family: sans-serif;
+}
+
+.btn {
+    font-size: 2vh;
+}
+
+input {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    color: black !important;
+    padding: 10px !important;
+}
