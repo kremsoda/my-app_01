@@ -15,7 +15,11 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@mui/styles": "^5.13.2",
+		"Table": "link:@mui/material/Table",
 		"concurrently": "^8.0.1",
-		"jwt-decode": "^3.1.2"
+		"jwt-decode": "^3.1.2",
+		"react-data-table-component": "^7.5.3",
+		"styles": "link:@mui/material/styles"
 	}
 }

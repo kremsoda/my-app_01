@@ -5,10 +5,10 @@ function Popup({children, popup, setPopup}) {
     return popup ? (
         <div className={styles.popup}>
             <div className={styles.popupInner}>
-                <Button danger rounded onClick={() => setPopup(!popup)}>X</Button>
                 <div className={styles.popupContent}>
                     {children}
                 </div>
+                <Button success rounded onClick={() => setPopup(!popup)}>Ok</Button>
             </div>
         </div>
     ) : null;

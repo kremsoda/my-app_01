@@ -4,6 +4,8 @@ import axios from "axios";
 
 import Button from "../../components/Button";
 
+const BASE_URL = 'http://localhost:5010/user/registration';
+
 function RegistrationPage() {
     const [error, setError] = useState();
     const navigate = useNavigate();
@@ -16,30 +18,23 @@ function RegistrationPage() {
         confirmPassword: ''
     });
 
-    const handleSubmit =  async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await axios.post('http://localhost:5010/user/registration', {
-            firstName: userDetails.firstName,
-            lastName: userDetails.lastName,
-            email: userDetails.email,
-            password: userDetails.password,
-            confirmPassword: userDetails.confirmPassword
-        })
-        .then(function (response) {
-            console.log(response);
-            navigate('/login');
-        })
-            .catch(function (error) {
-            setError(error.response.data.message)
-        });
+        try {
+            const response = await axios.post(BASE_URL,userDetails);
+            navigate("/login");
+        } catch ({ response }) {
+            setError(response.data.message);
+        }
     };
-    
+ 
     const handleChange = (e) => {
         setUserDetails({
-          ...userDetails,
-          [e.target.name]: e.target.value,
+            ...userDetails,
+            [e.target.name]: e.target.value,
         });
     };
+ 
 
     return(
         <section className='flex justify-center'>

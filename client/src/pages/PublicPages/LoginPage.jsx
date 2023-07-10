@@ -1,11 +1,13 @@
-import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import Button from '../../components/Button';
 import { logIn } from '../../store/slices/userSlice';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+
+const BASE_URL = 'http://localhost:5010/user/login';
+
 
 function Login() {
     const navigate = useNavigate();
@@ -19,18 +21,13 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await axios.post('http://localhost:5010/user/login', {
-            email: userLogin.email,
-            password: userLogin.password
-        })
-        .then(function (response) {
-            dispatch(logIn(response.data.token));
-            navigate('/');
-        })
-            .catch(function (error) {
-            setError(error.response.data.message)
-        });
-        
+        try {
+            const { data } = await axios.post(BASE_URL, userLogin);
+            dispatch(logIn(data.token));
+            navigate("/");
+        } catch ({ response }) {
+            setError(response.data.message);
+        } 
     } 
 
     const handleChange = (e) => {

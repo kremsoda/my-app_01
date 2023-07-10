@@ -2,8 +2,9 @@ import {createBrowserRouter} from 'react-router-dom';
 
 import { PrivateLayout, PublicLayout } from '../layouts';
 import {HomePage, AboutPage, NotFoundPage, PostPage, PostsPage, ContactPage, BlogPage, LoginPage, RegistrationPage} from '../pages/PublicPages';
-import {DashboardPage, ProfilePage} from '../pages/PrivatePages'
+import {DashboardPage, ProfilePage, DashboardPostPage} from '../pages/PrivatePages'
 import AuthRoute from './AuthRoute';
+import PrivateRoute from './PrivateRoute';
 
 export const router = createBrowserRouter([
     {
@@ -38,26 +39,39 @@ export const router = createBrowserRouter([
                 path: '/blog',
                 element: <BlogPage/>
             },
-            {
-                path: '/login',
-                element: <LoginPage/>
-            },
-            {
-                path: '/registration',
-                element: <RegistrationPage/>
-            },
         ]
     },
     {
         element: <AuthRoute redirectPath={'/'}/>,
         children: [
+            {
+                element: <PublicLayout/>,
+                children: [
+                    {
+                        path: '/login',
+                        element: <LoginPage/>
+                    },
+                    {
+                        path: '/registration',
+                        element: <RegistrationPage/>
+                    },
+                ]
+            }
+        ],
+    },
+    {
+        element: <PrivateRoute redirectPath={'/'}/>,
+        children: [
             {   
-                path: '/dashboard',
                 element: <PrivateLayout/>,
                 children: [
                     {
-                        index: true,
+                        path: '/dashboard',
                         element: <DashboardPage/>
+                    },
+                    {
+                        path: '/dashboard/post',
+                        element: <DashboardPostPage/>
                     },
                     {
                         path: '/dashboard/profile',

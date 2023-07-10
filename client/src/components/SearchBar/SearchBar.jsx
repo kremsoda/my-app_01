@@ -5,6 +5,7 @@ import { changeSearchTerm } from "../../store/slices/postSlice";
 import styles from './SearchBar.module.scss'
 
 function SearchBar({onSubmit}) {
+
     const dispatch = useDispatch();
 
     const searchTerm = useSelector((state)=> {
@@ -26,11 +27,11 @@ function SearchBar({onSubmit}) {
 
     return(
         <div className={styles.searchBar}>
-        <form className={styles.form} onSubmit={handleFormSubmit}>
-            <label className={styles.label}>Enter search term to look for posts:</label>
-            <input placeholder="Enter whatever...." value={searchTerm} onChange={handleSearchTermChange}/>
-        </form>
-      </div>
+            <form className={styles.form} onSubmit={handleFormSubmit}>
+                <label className={styles.label}>Enter search term to look for posts:</label>
+                <input placeholder="Enter whatever...." value={searchTerm} onChange={handleSearchTermChange}/>
+            </form>
+        </div>
     );
 }
 

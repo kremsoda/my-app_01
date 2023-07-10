@@ -1,7 +1,8 @@
+import styles from './Nav.module.scss';
 
 function NavList({children}) {
     return(
-        <nav style={{display: 'flex', alignItems: 'center'}}>
+        <nav className={styles.navStyle}>
             {children}
         </nav>
     );

@@ -54,6 +54,10 @@ function Header() {
             link: '/posts'
         },
         {
+            name: 'My Blog',
+            link: '/blog'
+        },
+        {
             name: '404',
             link: '/*'
         }
@@ -75,8 +79,8 @@ function Header() {
                     :
                     null
                 )}
-                {(user !== false ? 
-                    <Button className='mx-3' danger onClick={()=>dispatch(logOut(false))}>Log Out</Button>
+                {(user ? 
+                    <Button className='mx-3' danger onClick={()=>dispatch(logOut())}>Log Out</Button>
                     :
                     <NavLink to={'/login'}>
                         <Button primary >Log In</Button>

@@ -32,3 +32,5 @@ router.patch("/:id/comments/:commentId/reply", replyComment);
 router.patch("/:id/viewcount", viewCount);
 
 export default router;
+
+// canvas to img

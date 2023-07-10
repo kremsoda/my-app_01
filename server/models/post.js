@@ -6,10 +6,12 @@ const postSchema = mongoose.Schema({
   status: String,
   name: String,
   userID: String,
+  externalLink: String,
   tag: [{ type: String }],
   categories: [{ type: String }],
   slug: { type: String },
   thumbnail: { type: String },
+
   comments: [
     {
       text: { type: String, required: true },

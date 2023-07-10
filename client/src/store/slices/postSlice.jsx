@@ -5,6 +5,7 @@ const postsSlice = createSlice({
     initialState: {
         searchTerm: 'cats',
         images: [],
+        myPosts: []
     },
     reducers: {
         changeSearchTerm(state, action) {
@@ -12,9 +13,15 @@ const postsSlice = createSlice({
         },
         changeImages(state, action) {
             state.images = action.payload;
+        },
+        setMyPosts(state, action) {
+            state.myPosts = action.payload;
+        },
+        deletePost(state, action) {
+            state.myPosts = state.myPosts.filter(post => post.id !== action.payload);
         }
     }
 });
 
-export const {changeSearchTerm, changeImages} = postsSlice.actions;
+export const {changeSearchTerm, changeImages, setMyPosts, deletePost} = postsSlice.actions;
 export const postsReducer = postsSlice.reducer;
